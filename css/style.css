@@ -68,3 +68,11 @@
 #todo-list li.priority .priority-btn:after {
 	color: #d66;
 }
+
+/* showing priority in footer stats */
+.important {
+	color: #d00;	
+}
+.important:after {
+	content: '!';
+} 

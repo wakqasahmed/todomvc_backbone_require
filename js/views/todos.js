@@ -52,9 +52,11 @@ define([
 
 		isHidden: function () {
 			var isCompleted = this.model.get('completed');
+			var hasPriority = this.model.get('priority');
 			return (// hidden cases only
 				(!isCompleted && Common.TodoFilter === 'completed') ||
-				(isCompleted && Common.TodoFilter === 'active')
+				(isCompleted && Common.TodoFilter === 'active') ||
+				(!hasPriority && Common.TodoFilter === 'important')
 			);
 		},
 

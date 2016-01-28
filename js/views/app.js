@@ -50,7 +50,7 @@ define([
 					Todos.push({title: "Add colors, so people can associate different todos with each other", completed: false, priority: false});					
 					Todos.push({title: "Add a trash can for recovering deleted todos", completed: false, priority: true});					
 					Todos.push({title: "Expand priority feature to have more priority status e.g. High, Medium, Low", completed: false, priority: false});
-					Todos.push({title: "Let users filter or sort by priority status", completed: false, priority: true});
+					Todos.push({title: "Let users filter or sort by priority status", completed: true, priority: true});
 					Todos.push({title: "Let user set priority status when creating a todo", completed: false, priority: true});
 					Todos.push({"title": "Add Priority button", "completed": true, "priority": false});
 					Todos.push({"title": "Add Edit button", "completed": true, "priority": false});
@@ -67,6 +67,8 @@ define([
 		render: function () {
 			var completed = Todos.completed().length;
 			var remaining = Todos.remaining().length;
+			var important = Todos.important().length;
+			console.log("Important: " + important)
 
 			if (Todos.length) {
 				this.$main.show();
@@ -74,7 +76,8 @@ define([
 
 				this.$footer.html(this.template({
 					completed: completed,
-					remaining: remaining
+					remaining: remaining,
+					important: important
 				}));
 
 				this.$('#filters li a')
@@ -115,7 +118,8 @@ define([
 			return {
 				title: this.$input.val().trim(),
 				order: Todos.nextOrder(),
-				completed: false
+				completed: false,
+				priority: false
 			};
 		},
 
