@@ -11,6 +11,8 @@ define([
 		// Reference to this collection's model.
 		model: Todo,
 
+		url: 'data/todos.json',
+
 		// Save all of the todo items under this example's namespace.
 		localStorage: new Store('todos-backbone'),
 

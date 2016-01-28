@@ -43,7 +43,23 @@ define([
 			this.listenTo(Todos, 'filter', this.filterAll);
 			this.listenTo(Todos, 'all', _.debounce(this.render, 0));
 
-			Todos.fetch({reset:true});
+			Todos.fetch({
+				reset:true,
+				success: function(){
+					Todos.push({title: "Add labels for sorting and filtering", completed: false, priority: false});					
+					Todos.push({title: "Add colors, so people can associate different todos with each other", completed: false, priority: false});					
+					Todos.push({title: "Add a trash can for recovering deleted todos", completed: false, priority: true});					
+					Todos.push({title: "Expand priority feature to have more priority status e.g. High, Medium, Low", completed: false, priority: false});
+					Todos.push({title: "Let users filter or sort by priority status", completed: false, priority: true});
+					Todos.push({title: "Let user set priority status when creating a todo", completed: false, priority: true});
+					Todos.push({"title": "Add Priority button", "completed": true, "priority": false});
+					Todos.push({"title": "Add Edit button", "completed": true, "priority": false});
+																				
+					_.each(Todos.models, function(data){
+						console.log(data);
+					});
+				}
+			});
 		},
 
 		// Re-rendering the App just means refreshing the statistics -- the rest

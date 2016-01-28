@@ -19,7 +19,6 @@ define([
 			this.save({
 				priority: !this.get('priority')
 			});
-			console.log(priority);
 		},
 
 		// Toggle the `completed` state of this todo item.
